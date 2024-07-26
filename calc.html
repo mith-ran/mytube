@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator
+    </title>
+</head>
+
+<style>
+    button{
+        width: 100px;
+        height: 80px;
+        row-gap: 10px;
+        margin: 10px;
+        background: transparent;
+        color: white;
+        background-color: rgb(45, 33, 33);
+        cursor: pointer;
+
+    }
+
+    input{
+        margin-bottom: 20px;
+        height: 50px;
+        display: flex;
+    }
+    body{
+        background-color: rgb(25,25,25);
+        color: white;
+    }
+</style>
+<body>
+    <center>
+        <h1>Calculator</h1>
+        <input type="text" class="display" disabled><br>
+        <button onclick="val('1')">1</button>
+        <button onclick="val('0')">0</button>
+        <button onclick="val('2')">2</button>
+        <button onclick="val('3')">3</button>
+        <br>
+        <button onclick="val('4')">4</button>
+        
+        <button onclick="val('5')">5</button>
+        <button onclick="val('6')">6</button>
+        <button onclick="val('7')">7</button>
+        <br>
+        <button onclick="val('8')">8</button>
+        <button onclick="val('9')">9</button>
+        
+        <button onclick="val('+')">+</button>
+        <button onclick="val('-')">-</button>
+    
+        <br>
+        <button onclick="val('*')">*</button>
+        <button  onclick="val('/')">/</button>
+        <button   onclick="calc()">=</button>
+        <br>
+    
+    </center>
+    
+    
+</body>
+
+<script>
+    /*var =document.querySelector('button').innerHTML;
+    console.log()*/
+
+
+       
+    function val(value){
+        document.getElementsByClassName("display")[0].value+=value;
+        /*var express = document.querySelector('.display').value;*/
+        
+
+    }
+    function calc(){
+        var express= document.getElementsByClassName("display")[0].value;
+        var result= eval(express);
+        console.log(typeof(result));
+        document.getElementsByClassName("display")[0].value = result;
+    }
+</script>
+
+
+</html>

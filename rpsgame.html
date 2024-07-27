@@ -91,7 +91,7 @@
             <button onclick="
             score.wins=0;
             score.loses=0;
-            score.die=0;
+            score.tie=0;
             para();
             " class="re">
                 <h2>reset score</h2>
@@ -133,7 +133,7 @@
          const score ={
              wins :0,
              loses:0,
-             die:0
+             tie:0
          };
          
         function autoplay(){
@@ -158,7 +158,7 @@
             if(user=='rock'){
                 if(computersays =='rock')
                 {
-                    result='die';
+                    result='tie';
                 }
                 else if (computersays =='paper')
                 {
@@ -174,7 +174,7 @@
                 }
                 else if (computersays =='paper')
                 {
-                    result='die';
+                    result='tie';
                 }
                 else{
                     result='lose';
@@ -191,7 +191,7 @@
                     result='win';
                 }
                 else{
-                    result='die';
+                    result='tie';
                 }
             }
             if(result =='win'){
@@ -201,7 +201,7 @@
                 score.loses+=1;
             }
             else{
-                score.die+=1;
+                score.tie+=1;
             }
    
 
@@ -209,13 +209,13 @@
 
 
           
-           /* alert(`you pickes-${user}\ncomputer picked-${computersays}\nresult-you ${result}
-wins-${score.wins}  loses-${score.loses}  die-${score.die}`);*/
+           /* alert(`you pickes-${user}\ncomputer picked-${computersays}\nresult- ${result}
+wins-${score.wins}  loses-${score.loses}  die-${score.tie}`);*/
                     
             document.querySelector('.user').innerHTML =`you pickes-${user}`;
             document.querySelector('.comp').innerHTML =`computer picked-${computersays}`;
-            document.querySelector('.result').innerHTML =`result-you ${result}`;
-            document.querySelector('.score').innerHTML =`wins-${score.wins}  loses-${score.loses}  die-${score.die}`;
+            document.querySelector('.result').innerHTML =`result- ${result}`;
+            document.querySelector('.score').innerHTML =`wins-${score.wins}  loses-${score.loses}  die-${score.tie}`;
 
 
 }
@@ -224,7 +224,7 @@ wins-${score.wins}  loses-${score.loses}  die-${score.die}`);*/
             document.querySelector('.user').innerHTML ="you pickes - 0";
             document.querySelector('.comp').innerHTML =`computer picked - 0`;
             document.querySelector('.result').innerHTML =`result-you - 0 `;
-            document.querySelector('.score').innerHTML =`wins- 0  loses -0  die -0`;
+            document.querySelector('.score').innerHTML =`wins- 0  loses -0  tie -0`;
          }
            /* window.onload=para();*/ 
            

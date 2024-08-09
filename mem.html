@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background: url(img.jpg) no-repeat;
+        background-size: cover;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .border{
+        border: 2px solid black ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: transparent;
+        backdrop-filter: blur(5px);
+    }
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        row-gap: 10px;
+        column-gap: 10px;
+        padding: 20px;
+    }
+    img{
+        height: 110px;
+        width: 120px;
+    }
+
+   
+    .con{
+        height: 120px;
+        width: 130px;
+        position: relative;
+        transform-style:preserve-3d;
+        
+        transition: 1s ease;
+        perspective: 1000px;
+    }
+
+    .front,.back{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+    }
+    .back{
+        transform: rotateY(180deg);
+        
+    }
+    .rotate{
+        transform:rotateY(180deg);
+        
+    }
+    
+    
+
+</style>
+<body>
+    <div class="border"  >
+        <h1>Memory gamee</h1>
+        <div class="grid"  >
+           
+           
+            
+        </div>
+        <button onclick="window.location.reload()">RESET</button>
+    </div>
+
+</body>
+<script>
+    const pic=[{path:"1"},{path:"1"},{path:"2"},{path:"2"},{path:"3"},{path:"3"},{path:"4"},{path:"4"},{path:"5"},{path:"5"},{path:"6"},{path:"6"},{path:"7"},{path:"7"},{path:"9"},{path:"9"}];
+    var numm =pic.sort(function(){
+        return Math.random()-0.5;
+        });
+    
+    let html="";
+    var i=0;
+    pic.forEach(function(item){
+        html+=`<div><div class="con a${item.path}" onclick="clickk(${item.path},${i})" id="b${i}" ><img class="back"src="pics/${item.path}.avif"> <img class="front"src="pics/cons.webp"></div></div>`;
+        i++;
+    });
+   
+    
+    document.querySelector(".grid").innerHTML=html;
+    let first='';
+    let second='';
+    let arr=[];
+    let idd=[];
+    let el='';
+    let ad='';
+   
+    function clickk(touch,id){
+        arr.push(touch);
+        idd.push(id)
+        console.log(arr);
+        ad=document.querySelector(`#b${id}`);
+        ad.classList.toggle('rotate');
+        first=document.querySelectorAll(`.a${touch}`);
+
+        
+        
+       
+        if(touch==arr[arr.length-2]){
+            
+            console.log("same");
+            first.forEach(function(first){
+                console.log(first);
+               /* first.style.transform='none';*/
+                console.log(first.classList);
+                second=first.querySelector(".back");
+                el=second;
+                console.log(el);
+               
+                el.style.backfaceVisibility= 'hidden';
+                el.style.transform='none';});
+                arr=[];
+                idd=[];
+           
+               
+        }
+        
+            console.log("diff");
+            console.log(arr);
+            console.log(idd);
+
+            let one=document.querySelector(`#b${id}`);
+            let two=idd[idd.length-2];
+            console.log(one);
+            two= document.querySelector(`#b${two}`);
+            two.classList.remove('rotate');
+            
+            console.log(two);
+
+            
+        
+    };
+
+
+  
+</script>
+</html>
